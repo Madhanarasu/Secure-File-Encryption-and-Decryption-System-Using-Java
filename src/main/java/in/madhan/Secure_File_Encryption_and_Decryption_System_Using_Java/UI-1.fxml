@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.DropdownButton?>
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <SplitPane prefHeight="160.0" prefWidth="200.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <SplitPane dividerPositions="0.04777486910994764" layoutX="14.0" layoutY="-26.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <MenuBar layoutY="7.0" prefHeight="26.0" prefWidth="824.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="0.0">
+                                      <menus>
+                                        <Menu mnemonicParsing="false" text="File">
+                                          <items>
+                                                <MenuItem mnemonicParsing="false" text="Restart" />
+                                            <MenuItem mnemonicParsing="false" text="Exit" />
+                                          </items>
+                                        </Menu>
+                                        <Menu mnemonicParsing="false" text="Help">
+                                          <items>
+                                            <MenuItem mnemonicParsing="false" text="About" />
+                                          </items>
+                                        </Menu>
+                                      </menus>
+                                    </MenuBar>
+                                    <Icon content="HELP_OUTLINE" layoutX="816.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="824.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.348248106060606" layoutX="8.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <ListView layoutY="28.8" prefHeight="549.0" prefWidth="291.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0" />
+                                                <Label layoutX="14.0" layoutY="6.0" prefHeight="18.0" prefWidth="125.0" text="Recent Files" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="555.6" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="152.4" AnchorPane.topAnchor="6.0" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="579.0" prefWidth="590.0">
+                                             <children>
+                                                <RadioButton layoutX="67.0" layoutY="36.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="86.0" text="Encrypt " />
+                                                <RadioButton layoutX="166.0" layoutY="37.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="109.0" text="Decrypt" />
+                                                <CheckBox layoutX="12.0" layoutY="409.0" mnemonicParsing="false" text="Overwrite if already eixsts" />
+                                                <CheckBox layoutX="199.0" layoutY="409.0" mnemonicParsing="false" text="Remember the last path" />
+                                                <CheckBox layoutX="371.0" layoutY="409.0" mnemonicParsing="false" text="Verify after encryption" AnchorPane.leftAnchor="371.0" />
+                                                <Button layoutX="23.0" layoutY="466.0" mnemonicParsing="false" text="Encrypt" />
+                                                <Button layoutX="140.0" layoutY="469.0" mnemonicParsing="false" text="Decrypt" />
+                                                <Button layoutX="258.0" layoutY="469.0" mnemonicParsing="false" text="Clear" />
+                                                <ProgressBar layoutX="23.0" layoutY="517.0" prefHeight="20.0" prefWidth="250.0" progress="0.0" />
+                                                <Text layoutX="288.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Done!" wrappingWidth="40.35807418823242" />
+                                                <PasswordField layoutX="90.0" layoutY="320.0" promptText="Enter Key/Password" AnchorPane.leftAnchor="104.0" />
+                                                <PasswordField layoutX="180.0" layoutY="366.0" promptText="Re-Enter Key/Password" AnchorPane.leftAnchor="104.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </PasswordField>
+                                                <TextField fx:id="inputFIle" layoutX="104.0" layoutY="81.0" promptText="Select a file" AnchorPane.leftAnchor="104.0" />
+                                                <TextField fx:id="Out" layoutX="157.0" layoutY="130.0" promptText="Choose where to save" />
+                                                <DropdownButton layoutX="104.0" layoutY="181.0" prefHeight="27.0" prefWidth="123.0" AnchorPane.leftAnchor="104.0">
+                                                    <items>
+                                                        <MenuItem text="AES" />
+                                                        <MenuItem text="AES 256" />
+                                                        <MenuItem />
+                                                    </items>
+                                                </DropdownButton>
+                                                <DropdownButton layoutX="104.0" layoutY="223.0" AnchorPane.leftAnchor="104.0">
+                                                    <items>
+                                                        <MenuItem text="Choice 1" />
+                                                        <MenuItem text="Choice 2" />
+                                                        <MenuItem text="Choice 3" />
+                                                    </items>
+                                                </DropdownButton>
+                                                <DropdownButton layoutX="104.0" layoutY="267.0" AnchorPane.leftAnchor="104.0">
+                                                    <items>
+                                                        <MenuItem text="Choice 1" />
+                                                        <MenuItem text="Choice 2" />
+                                                        <MenuItem text="Choice 3" />
+                                                    </items>
+                                                </DropdownButton>
+                                                <Button layoutX="288.0" layoutY="318.0" mnemonicParsing="false" text="Generate" AnchorPane.leftAnchor="288.0" />
+                                                <CheckBox layoutX="290.0" layoutY="367.0" mnemonicParsing="false" text="Show Key" AnchorPane.leftAnchor="288.0" />
+                                                <Button layoutX="287.0" layoutY="82.0" mnemonicParsing="false" text="Browse" />
+                                                <Button layoutX="329.0" layoutY="128.0" mnemonicParsing="false" text="Select" />
+                                                <Label layoutX="21.0" layoutY="89.0" text="Input File" AnchorPane.leftAnchor="20.0" />
+                                                <Label layoutX="21.0" layoutY="136.0" text="Output File Location" AnchorPane.leftAnchor="20.0" />
+                                                <Label layoutX="24.0" layoutY="185.0" text="Algorithm" AnchorPane.leftAnchor="20.0" />
+                                                <Label layoutX="21.0" layoutY="228.0" text="Cipher Mode" AnchorPane.leftAnchor="20.0" />
+                                                <Label layoutX="23.0" layoutY="281.0" text="Key Size" AnchorPane.leftAnchor="20.0" />
+                                                <Label layoutX="21.0" layoutY="324.0" text="Key" AnchorPane.leftAnchor="20.0" />
+                                                <Label layoutX="23.0" layoutY="370.0" text="Confirm Key" AnchorPane.leftAnchor="20.0" />
+                                                <Label layoutX="21.0" layoutY="37.0" text="Mode :" AnchorPane.leftAnchor="20.0" />
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
