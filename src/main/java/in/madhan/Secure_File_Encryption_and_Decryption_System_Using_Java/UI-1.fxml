@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="in.madhan.Secure_File_Encryption_and_Decryption_System_Using_Java.MainController">
    <children>
       <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
@@ -61,7 +61,7 @@
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="579.0" prefWidth="590.0">
                                              <children>
                                                 <RadioButton layoutX="67.0" layoutY="36.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="86.0" text="Encrypt " />
-                                                <RadioButton layoutX="166.0" layoutY="37.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="109.0" text="Decrypt" />
+                                                <RadioButton layoutX="166.0" layoutY="37.0" mnemonicParsing="false" onAction="" prefHeight="18.0" prefWidth="109.0" text="Decrypt" />
                                                 <CheckBox layoutX="12.0" layoutY="409.0" mnemonicParsing="false" text="Overwrite if already eixsts" />
                                                 <CheckBox layoutX="199.0" layoutY="409.0" mnemonicParsing="false" text="Remember the last path" />
                                                 <CheckBox layoutX="371.0" layoutY="409.0" mnemonicParsing="false" text="Verify after encryption" AnchorPane.leftAnchor="371.0" />
@@ -76,8 +76,8 @@
                                                       <Font size="15.0" />
                                                    </font>
                                                 </PasswordField>
-                                                <TextField fx:id="inputFIle" layoutX="104.0" layoutY="81.0" promptText="Select a file" AnchorPane.leftAnchor="104.0" />
-                                                <TextField fx:id="Out" layoutX="157.0" layoutY="130.0" promptText="Choose where to save" />
+                                                <TextField layoutX="104.0" layoutY="81.0" promptText="Select a file" AnchorPane.leftAnchor="104.0" />
+                                                <TextField layoutX="157.0" layoutY="130.0" promptText="Choose where to save" />
                                                 <DropdownButton layoutX="104.0" layoutY="181.0" prefHeight="27.0" prefWidth="123.0" AnchorPane.leftAnchor="104.0">
                                                     <items>
                                                         <MenuItem text="AES" />

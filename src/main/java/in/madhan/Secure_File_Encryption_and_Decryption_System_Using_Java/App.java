@@ -1,11 +1,9 @@
 package in.madhan.Secure_File_Encryption_and_Decryption_System_Using_Java;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.concurrent.ExecutionException;
 
 
-import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -111,32 +109,32 @@ public void start(Stage primaryStage) throws InterruptedException, ExecutionExce
 				
 		 
 				
-//		  open.setOnAction(e ->{});
-//			  String UserName = UserName_tx.getText().strip();
-//				 String Password =  password_tx.getText().strip();
-//			 Boolean result;
-//			if(( result =UserDAO.ValidateUser(con,UserName, Password)) != null) { 
-////				result ==
-//					try{if( true) {
-////			  primaryStage.setScene(dashscene);	
-//					
-//						Parent	root1 = FXMLLoader.load(getClass().getResource("UI-1.fxml"));
-//						
-//						Scene scene1 = new Scene(root1);
-//						primaryStage.setScene(scene1);
-//						} else{
-//					feedback_l.setText("Login Failed:Enter correct credentials");
-//				}}catch (IOException e1) {
-//							// TODO Auto-generated catch block
-//							e1.printStackTrace();
-//						}
-//				}//Logging In
-//			 else{feedback_l.setText("Failed to connect to the Database");}
-//		  });      
-//		   
+		  open.setOnAction(e ->{});
+			  String UserName = UserName_tx.getText().strip();
+				 String Password =  password_tx.getText().strip();
+			 Boolean result;
+			if(( result =DBController.ValidateUser(UserName, Password)) != null) { 
+				
+					try{if(result == true) {
+		 
+					
+						Parent	root1 = FXMLLoader.load(getClass().getResource("UI-1.fxml"));
+						
+						Scene scene1 = new Scene(root1);
+						primaryStage.setScene(scene1);
+						} else{
+					feedback_l.setText("Login Failed:Enter correct credentials");
+				}}catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+				}//Logging In
+			 else{feedback_l.setText("Failed to connect to the Database");}
+		  };      
+		   
 //		  clear.setOnAction(e ->{
 //			  UserName_tx.clear();
 //			  password_tx.clear();
 //		  });
 		 
-}}
+}

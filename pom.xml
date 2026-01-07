@@ -13,7 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
      <javafx.version>25.0.1</javafx.version>
-    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.source>25</maven.compiler.source>
     <maven.compiler.target>25</maven.compiler.target>
      <main.class>in.madhan.Secure_File_Encryption_and_Decryption_System_Using_Java.App</main.class>
   </properties>
