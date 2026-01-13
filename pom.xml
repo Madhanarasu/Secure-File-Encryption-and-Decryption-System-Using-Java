@@ -12,10 +12,11 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-     <javafx.version>25.0.1</javafx.version>
-    <maven.compiler.source>25</maven.compiler.source>
-    <maven.compiler.target>25</maven.compiler.target>
-     <main.class>in.madhan.Secure_File_Encryption_and_Decryption_System_Using_Java.App</main.class>
+    <javafx.version>21.0.1</javafx.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.release>17</maven.compiler.release>
+    <main.class>in.madhan.Secure_File_Encryption_and_Decryption_System_Using_Java.App</main.class>
   </properties>
 
   <dependencies>
@@ -49,7 +50,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.10.1</version>
         <configuration>
-          <release>17</release>
+          <release>${maven.compiler.release}</release>
         </configuration>
       </plugin>
 

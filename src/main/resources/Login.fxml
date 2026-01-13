@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="in.madhan.Secure_File_Encryption_and_Decryption_System_Using_Java.LoginController" stylesheets="@style.css">
+    
+    <!-- Login View -->
+    <VBox fx:id="loginPane" alignment="CENTER" spacing="20.0" prefWidth="400" prefHeight="500">
+        <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+        </padding>
+        
+        <Label text="FileGuardian" styleClass="header-label" />
+        <Label text="Login to continue" styleClass="sub-header-label" />
+        
+        <TextField fx:id="usernameField" promptText="Username" />
+        <PasswordField fx:id="passwordField" promptText="Password" />
+        
+        <Button text="Login" onAction="#handleLogin" prefWidth="200" defaultButton="true"/>
+        
+        <Label fx:id="statusLabel" styleClass="status-text" wrapText="true" />
+    </VBox>
+
+</StackPane>
