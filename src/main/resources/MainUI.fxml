@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<BorderPane prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="in.madhan.Secure_File_Encryption_and_Decryption_System_Using_Java.MainController" stylesheets="@style.css">
+    
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="Logout" onAction="#onLogout"/>
+                <MenuItem text="Exit" onAction="#onExit"/>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="About"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+        <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Dashboard">
+                <SplitPane dividerPositions="0.3">
+                    <items>
+                        <!-- Sidebar -->
+                        <VBox spacing="10" style="-fx-background-color: #313244;">
+                            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                            <Label text="Instructions" styleClass="sub-header-label"/>
+                            <Label text="1. Select Input File" wrapText="true"/>
+                            <Label text="2. Select Output Location" wrapText="true"/>
+                            <Label text="3. Enter Password" wrapText="true"/>
+                            <Label text="4. Click Encrypt or Decrypt" wrapText="true"/>
+                            <Label text=" "/>
+                            <Label text="Keep your password safe! If you lose it, the file cannot be recovered." wrapText="true" style="-fx-text-fill: #f38ba8;"/>
+                        </VBox>
+
+                        <!-- Main Operation Area -->
+                        <VBox spacing="20" alignment="TOP_CENTER">
+                            <padding><Insets top="20" right="40" bottom="40" left="40"/></padding>
+                            
+                            <Label text="Secure File Operations" styleClass="header-label"/>
+                            
+                            <GridPane hgap="15" vgap="15">
+                                <!-- Row 0: Mode -->
+                                <Label text="Mode:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <HBox spacing="15" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <RadioButton text="Encrypt" selected="true">
+                                        <toggleGroup><ToggleGroup fx:id="modeGroup"/></toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton text="Decrypt" toggleGroup="$modeGroup"/>
+                                </HBox>
+
+                                <!-- Row 1: Input -->
+                                <Label text="Input File:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <TextField fx:id="inputFileField" promptText="Select file..." HBox.hgrow="ALWAYS"/>
+                                    <Button fx:id="browseButton" text="Browse" onAction="#onBrowse"/>
+                                </HBox>
+
+                                <!-- Row 2: Output -->
+                                <Label text="Output File:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <TextField fx:id="outputFileField" promptText="Save as..." HBox.hgrow="ALWAYS"/>
+                                    <Button fx:id="selectButton" text="Select" onAction="#onSelectOutput"/>
+                                </HBox>
+
+                                <!-- Algorithm (Visual only) -->
+                                <Label text="Algorithm:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                                <ComboBox value="AES-256 (GCM)" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="Infinity">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="AES-256 (GCM)"/>
+                                            <String fx:value="AES-128 (GCM)"/>
+                                        </FXCollections>
+                                    </items>
+                                </ComboBox>
+                                
+                                <!-- Row 4: Password -->
+                                <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                     <PasswordField fx:id="passwordField" promptText="Enter Encryption Key" HBox.hgrow="ALWAYS"/>
+                                     <Button fx:id="generateButton" text="Generate" onAction="#onGenerate"/>
+                                </HBox>
+
+                                <!-- Row 5: Confirm -->
+                                <Label text="Confirm:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <PasswordField fx:id="confirmPasswordField" promptText="Confirm Encryption Key" HBox.hgrow="ALWAYS"/>
+                                    <CheckBox fx:id="showKeyCheck" text="Show" onAction="#onShowKeyToggle"/>
+                                </HBox>
+
+                            </GridPane>
+
+                            <HBox spacing="20" alignment="CENTER">
+                                <padding><Insets top="20"/></padding>
+                                <Button fx:id="encryptButton" text="ENCRYPT FILE" onAction="#onEncrypt" prefWidth="150" style="-fx-background-color: #a6e3a1; -fx-text-fill: #1e1e2e;"/>
+                                <Button fx:id="decryptButton" text="DECRYPT FILE" onAction="#onDecrypt" prefWidth="150" style="-fx-background-color: #f38ba8; -fx-text-fill: #1e1e2e;"/>
+                            </HBox>
+
+                            <Label fx:id="statusText" text="Ready" styleClass="status-text"/>
+                            <ProgressBar fx:id="progressBar" progress="0.0" maxWidth="Infinity"/>
+                        </VBox>
+                    </items>
+                </SplitPane>
+            </Tab>
+            
+            <Tab text="History Logs">
+                <VBox spacing="10">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <Label text="Activity History" styleClass="header-label"/>
+                    <Button text="Refresh Logs" onAction="#loadLogs"/>
+                    <ListView fx:id="logsListView" VBox.vgrow="ALWAYS"/>
+                </VBox>
+            </Tab>
+
+            <Tab fx:id="adminTab" text="Admin Control" closable="false">
+                <VBox spacing="20" alignment="TOP_CENTER">
+                    <padding><Insets top="20" right="40" bottom="40" left="40"/></padding>
+                    
+                    <Label text="User Management" styleClass="header-label"/>
+                    <Label text="Create New User Account" styleClass="sub-header-label"/>
+                    
+                    <GridPane hgap="15" vgap="15" alignment="CENTER">
+                        <Label text="New Username:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <TextField fx:id="regUsernameField" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="250"/>
+                        
+                        <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <PasswordField fx:id="regPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        
+                        <Label text="Confirm Password:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <PasswordField fx:id="regConfirmPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    </GridPane>
+                    
+                    <Button text="Create User" onAction="#onAddUser" prefWidth="200"/>
+                    <Label fx:id="regStatusLabel" styleClass="status-text"/>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+    
+    <bottom>
+        <HBox spacing="10" style="-fx-background-color: #11111b; -fx-padding: 5;">
+            <Label text="User:" style="-fx-text-fill: #6c7086;"/>
+            <Label fx:id="currentUserLabel" text="Guest" style="-fx-text-fill: #cdd6f4; -fx-font-weight: bold;"/>
+        </HBox>
+    </bottom>
+</BorderPane>
