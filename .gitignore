@@ -1,3 +1,25 @@
+# Build
 target/
+
+# IDE
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+.vscode/
+
+# Logs and Databases
 *.log
-*.clas
+*.db
+FileGuardian.db
+
+# Compiled files
+*.class
+
+# Test Data and Reports
+data.txt
+data_large.txt
+*.pdf
+ReproBug.java
+Diagnose.java
